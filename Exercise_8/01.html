@@ -32,6 +32,13 @@
     </button>
 
     <script>
+
+        let score = {
+            Wins: 0,
+            Loose: 0,
+            Tie: 0
+        }
+
         function PlayGame(playerMove) {
             const computerMove = PickComputerMove();
             let result = '';
@@ -82,8 +89,18 @@
 
             }
 
+            if (result === 'You Win!.') {
+                score.Wins += 1;
+            }
+            else if (result === 'You Loose.') {
+                score.Loose += 1;
+            }
+            else if (result === 'Tie.') {
+                score.Tie += 1;
+            }
 
-            alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}`);
+            alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
+Wins: ${score.Wins}, Losses: ${score.Loose}, Tie: ${score.Tie}`);
         }
 
 
