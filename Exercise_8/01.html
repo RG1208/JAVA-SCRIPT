@@ -11,23 +11,15 @@
     </p>
 
     <button onclick="
-        PickComputerMove();
-        PlayGame('Rock');
-    ">
+        PlayGame('Rock')">
         Rock
     </button>
 
-    <button onclick="
-        PickComputerMove();
-        PlayGame('Paper');
-    ">
+    <button onclick="PlayGame('Paper')">
         Paper
     </button>
 
-    <button onclick=" 
-    PickComputerMove(); 
-    PlayGame('Scissors'); 
-    ">
+    <button onclick="PlayGame('Scissors')">
         Scissors
     </button>
 
@@ -42,7 +34,11 @@
 
     <script>
 
-        let score = JSON.parse(localStorage.getItem('score'));
+        let score = JSON.parse(localStorage.getItem('score')) || {
+            Wins: 0,
+            Loose: 0,
+            Tie: 0
+        };
 
 
         function PlayGame(playerMove) {
