@@ -1,37 +1,30 @@
 <!DOCTYPE html>
 <html>
 
-<head></head>
+<head>
+
+</head>
 
 <body>
 
-    <button onclick="
-    PickComputerMove();
-    playGame('Heads');
-    ">
+    <button onclick="playGame('Heads')">
         Heads
     </button>
 
-    <button onclick="
-    PickComputerMove();
-    playGame('Tails');
-    ">
+    <button onclick="playGame('Tails')">
         Tails
     </button>
 
     <button onclick="
     score.Wins= 0;
     score.Loose = 0;
-    score.Tie=0;
-    localStorage.removeItem('score')
         ">
         Reset Score
     </button>
 
     <script>
-        let score = JSON.parse(localStorage.getItem('score'));
+        let score = '';
 
-        let computerMove = '';
         function playGame(guess) {
             const computerMove = PickComputerMove();
             let result = '';
@@ -58,25 +51,23 @@
 
 
             if (result === 'You Won') {
-                score.Won += 1;
+                score.Wins += 1;
             }
             else if (result === 'You Lost') {
-                score.Won += 1;
+                score.Loose += 1;
             }
 
-            localStorage.setItem('score', JSON.stringify(score));
-
             alert(`You picked ${guess}, Computer Picked ${computerMove}. ${result}
-Wins: ${score.Won}, Losses: ${score.Lost}`);
+Wins: ${score.Won}, Losses: ${score.Loose}`,);
         }
 
         function PickComputerMove() {
             const randomNumber = Math.random();
 
-            if (randomNumber > 0 && computerMove < 0.5) {
+            if (randomNumber < 0.5) {
                 computerMove = 'Heads';
             }
-            else if (randomNumber >= 0.5 && computerMove <= 1) {
+            else if (randomNumber >= 0.5) {
                 computerMove = 'Tails';
             }
             return (computerMove);
