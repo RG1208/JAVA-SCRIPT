@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <input class="name" placeholder="Name
+    " onkeydown=" console.log(event.key) 
+    if (event.key === 'Enter') {
+        nameVariable() ;
+    }">
+
+    <button onclick="
+        nameVariable();">
+        Submit
+    </button>
+
+    <p class=" final"></p>
+
+    <script>
+        function nameVariable() {
+
+            const input = document.querySelector('.name');
+            document.querySelector('.final').innerHTML = `Your name is: ${input.value}`;
+
+        }
+    </script>
+</body>
+
+</html>
