@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .gaming {
+            background-color: black;
+            color: white;
+            border: none;
+            height: 40px;
+            width: 85px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .lightGaming {
+            background-color: rgb(230, 230, 230);
+            color: black;
+            border: none;
+            height: 40px;
+            width: 85px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 14px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <button class="gaming" onclick="
+        const buttonElement= document.querySelector('.gaming');
+            if(!buttonElement.classList.contains('lightGaming')){
+                buttonElement.classList.add('lightGaming')}
+            
+            else{buttonElement.classList.remove('lightGaming');}
+            
+">
+        Gaming
+    </button>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
