@@ -3,7 +3,9 @@
 
 <head>
     <style>
-        .gaming {
+        .gaming,
+        .tech,
+        .music {
             background-color: black;
             color: white;
             border: none;
@@ -14,7 +16,9 @@
             font-size: 14px;
         }
 
-        .lightGaming {
+        .lightGaming,
+        .lightMusic,
+        .lightTech {
             background-color: rgb(230, 230, 230);
             color: black;
             border: none;
@@ -40,9 +44,30 @@
         Gaming
     </button>
 
-    <script>
 
-    </script>
+    <button class="music" onclick="
+        const buttonElement1= document.querySelector('.music');
+            if(!buttonElement1.classList.contains('lightMusic')){
+                buttonElement1.classList.add('lightMusic')}
+            
+            else{buttonElement1.classList.remove('lightMusic');}
+        
+">
+        Music
+    </button>
+
+
+    <button class="tech" onclick="
+        const buttonElement2= document.querySelector('.tech');
+            if(!buttonElement2.classList.contains('lightTech')){
+                buttonElement2.classList.add('lightTech')}
+        
+            else{buttonElement2.classList.remove('lightTech');}
+    
+">
+        Tech
+    </button>
+
 </body>
 
 </html>
