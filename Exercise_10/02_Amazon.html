@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .heading {
+            font-size: 17px;
+            font-family: arial;
+        }
+
+        .sub_heading {
+            font-size: 17px;
+            font-family: arial;
+        }
+
+        .last_heading {
+            font-size: 17px;
+            font-family: arial;
+        }
+
+        .js-input-cost {
+            padding-top: 5px;
+            padding-left: 5px;
+            padding-bottom: 5px;
+            font-size: 15px;
+            height: 30px;
+        }
+
+        .calculate_button {
+            font-size: 15px;
+            height: 43px;
+            padding-top: 5px;
+            padding-left: 20px;
+            padding-bottom: 5px;
+            padding-right: 20px;
+            background-color: green;
+            border: none;
+            color: white;
+
+        }
+    </style>
+</head>
+
+<body>
+    <p class="heading">Amazon Shipping Calculator</p>
+
+    <p class="sub_heading">Orders under $40 = +$10 shipping.</p>
+
+    <p class="last_heading">Orders over $40 = FREE shipping.</p>
+
+    <input placeholder="Cost of Order" class="js-input-cost
+    " onkeydown="console.log(event.key)
+    if (event.key === 'Enter'){
+        calculateTotal();
+    }">
+
+    <button class="calculate_button" onclick="calculateTotal();">
+        Calculate
+    </button>
+
+    <p class="total_cost"></p>
+
+    <script>
+        function calculateTotal() {
+            const input = document.querySelector('.js-input-cost');
+
+            let cost = Number(input.value);
+
+            if (cost < 40) {
+                cost = cost + 10;
+            }
+            document.querySelector('.total_cost').innerHTML = `$${cost}`;
+        }
+    </script>
+</body>
+
+</html>
