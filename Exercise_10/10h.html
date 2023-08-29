@@ -38,6 +38,10 @@
             color: white;
 
         }
+
+        .error-message {
+            color: red;
+        }
     </style>
 </head>
 
@@ -60,15 +64,25 @@
 
     <p class="total_cost"></p>
 
+    <p class="error-message"></p>
+
     <script>
         function calculateTotal() {
             const input = document.querySelector('.js-input-cost');
 
             let cost = Number(input.value) * 100;
 
+            document.querySelector('.error-message').innerHTML = '';
+            document.querySelector('.total_cost').innerHTML = '';
+
+            if (cost < 0) {
+                document.querySelector('.error-message').innerHTML = 'Error: Cost cannot be less than $0';
+                return;
+            }
             if (cost < 4000) {
                 cost = cost + 1000;
             }
+
             document.querySelector('.total_cost').innerHTML = `$${cost / 100}`;
 
         }
