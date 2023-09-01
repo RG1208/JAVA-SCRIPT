@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <p>TO-DO list</p>
+    <input placeholder="To-Do Name" class="js-input-element">
+    <button onclick="addTodo();">Add</button>
+
+    <script>
+        const todoList = [];
+        function addTodo() {
+            const inputElement = document.querySelector('.js-input-element');
+            const name = inputElement.value;
+
+            todoList.push(name);
+            console.log(todoList);
+
+            inputElement.value = '';
+        }
+    </script>
+</body>
+
+</html>
