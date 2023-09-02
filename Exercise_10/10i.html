@@ -2,121 +2,121 @@
 <html>
 
 <head>
-    <style>
-        body {
-            background-color: black;
+  <style>
+    body {
+      background-color: black;
 
-        }
+    }
 
-        .js-calculation {
-            color: white;
-            font-size: 40px;
-            font-family: Arial, Helvetica, sans-serif;
-            margin-left: 10px;
-            width: 255px;
-            margin-top: 0px;
-            margin-bottom: 0px;
-        }
+    .js-calculation {
+      color: white;
+      font-size: 40px;
+      font-family: Arial, Helvetica, sans-serif;
+      margin-left: 10px;
+      width: 255px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
 
-        .button1 {
-            background-color: rgb(51, 51, 51);
-            border-radius: 30px;
-            height: 60px;
-            width: 60px;
-            color: white;
-            border: none;
-            font-size: 25px;
-            margin-right: 5px;
-        }
+    .button1 {
+      background-color: rgb(51, 51, 51);
+      border-radius: 30px;
+      height: 60px;
+      width: 60px;
+      color: white;
+      border: none;
+      font-size: 25px;
+      margin-right: 5px;
+    }
 
-        .button2 {
-            background-color: rgb(254, 160, 10);
-            border-radius: 30px;
-            height: 60px;
-            width: 60px;
-            color: white;
-            border: none;
-            font-size: 25px;
-        }
+    .button2 {
+      background-color: rgb(254, 160, 10);
+      border-radius: 30px;
+      height: 60px;
+      width: 60px;
+      color: white;
+      border: none;
+      font-size: 25px;
+    }
 
-        .button3 {
-            background-color: rgb(51, 51, 51);
-            border-radius: 30px;
-            height: 60px;
-            width: 60px;
-            color: white;
-            border: none;
-            font-size: 17px;
-        }
-    </style>
+    .button3 {
+      background-color: rgb(51, 51, 51);
+      border-radius: 30px;
+      height: 60px;
+      width: 60px;
+      color: white;
+      border: none;
+      font-size: 17px;
+    }
+  </style>
 </head>
 
 <body>
 
-    <p class="js-calculation"></p>
-    <p>
-        <button class="button1" onclick="
+  <p class="js-calculation"></p>
+  <p>
+    <button class="button1" onclick="
         updateCalculation('1');
       ">1</button>
-        <button class="button1" onclick="
+    <button class="button1" onclick="
         updateCalculation('2');
       ">2</button>
 
-        <button class="button1" onclick="
+    <button class="button1" onclick="
         updateCalculation('3');
       ">3</button>
 
-        <button class="button2" onclick="
+    <button class="button2" onclick="
         updateCalculation(' + ');
       ">+</button>
-    </p>
+  </p>
 
-    <p>
-        <button class="button1" onclick="
+  <p>
+    <button class="button1" onclick="
         updateCalculation('4');
       ">4</button>
 
-        <button class="button1" onclick="
+    <button class="button1" onclick="
         updateCalculation('5');
       ">5</button>
 
-        <button class="button1" onclick="
+    <button class="button1" onclick="
         updateCalculation('6');
       ">6</button>
 
-        <button class="button2" onclick="
+    <button class="button2" onclick="
         updateCalculation(' - ');
       ">-</button>
-    </p>
+  </p>
 
-    <p>
-        <button class="button1" onclick="
+  <p>
+    <button class="button1" onclick="
         updateCalculation('7');
       ">7</button>
 
-        <button class="button1" onclick="
+    <button class="button1" onclick="
         updateCalculation('8');
       ">8</button>
 
-        <button class="button1" onclick="
+    <button class="button1" onclick="
         updateCalculation('9');
       ">9</button>
 
-        <button class="button2" onclick="
+    <button class="button2" onclick="
         updateCalculation(' * ');
       ">*</button>
-    </p>
+  </p>
 
-    <p>
-        <button class="button1" onclick="
+  <p>
+    <button class="button1" onclick="
         updateCalculation('0');
       ">0</button>
 
-        <button class="button1" onclick="
+    <button class="button1" onclick="
         updateCalculation('.');
       ">.</button>
 
-        <button class="button1" onclick="
+    <button class="button1" onclick="
         calculation = eval(calculation);
         
         displayCalculation(); 
@@ -124,42 +124,40 @@
         localStorage.setItem('calculation', calculation);
       ">=</button>
 
-        <button class="button2" onclick="
+    <button class="button2" onclick="
         updateCalculation(' / ');
       ">/</button>
-    </p>
+  </p>
 
-    <p>
-        <button class="button3" onclick="
+  <p>
+    <button class="button3" onclick="
         calculation = '';
         
         displayCalculation();
         
         localStorage.setItem('calculation', calculation);
       ">Clear</button>
-    </p>
+  </p>
 
-    <script>
-        let calculation = localStorage.getItem('calculation') || '';
+  <script>
+    let calculation = localStorage.getItem('calculation') || '';
 
-        displayCalculation();
+    displayCalculation();
 
+    function updateCalculation(value) {
+      calculation += value;
+      displayCalculation();
+      localStorage.setItem('calculation', calculation);
+    }
 
-        function updateCalculation(value) {
-            calculation += value;
-            displayCalculation();
-            localStorage.setItem('calculation', calculation);
-        }
+    function saveCalculation() {
+      localStorage.setItem('calculation', calculation);
+    }
 
-
-        function saveCalculation() {
-            localStorage.setItem('calculation', calculation);
-        }
-
-        function displayCalculation() {
-            document.querySelector('.js-calculation').innerHTML = calculation;
-        }
-    </script>
+    function displayCalculation() {
+      document.querySelector('.js-calculation').innerHTML = calculation;
+    }
+  </script>
 </body>
 
 </html>
