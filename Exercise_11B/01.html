@@ -3,6 +3,22 @@
 
 <head>
     <style>
+        .js-input-element {
+            padding-left: 5px;
+            padding-top: 9px;
+            padding-bottom: 9px;
+            padding-right: 30px;
+            font-size: 15px;
+        }
+
+        .js-date-input {
+            padding-left: 5px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            width: 130px;
+            font-size: 15px;
+        }
+
         .addButton {
             background-color: green;
             font-size: 15px;
@@ -12,6 +28,35 @@
             padding-top: 10px;
             padding-bottom: 10px;
             border: none;
+            cursor: pointer;
+        }
+
+        .deleteButton {
+            background-color: rgb(125, 2, 2);
+            font-size: 15px;
+            color: white;
+            padding-left: 28px;
+            padding-right: 35px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .display {
+            display: grid;
+            grid-template-columns: 200px 150px 100px;
+            margin-top: 10px;
+            row-gap: 10px;
+            column-gap: 10px;
+            align-items: center;
+        }
+
+        .input {
+            display: grid;
+            grid-template-columns: 200px 150px 100px;
+            row-gap: 10px;
+            column-gap: 10px;
 
         }
     </style>
@@ -19,11 +64,15 @@
 
 <body>
     <p>TO-DO list</p>
-    <input placeholder="To-Do Name" class="js-input-element">
+    <div class="input">
 
-    <input type="date" class="js-date-input">
+        <input placeholder="To-Do Name" class="js-input-element">
 
-    <button onclick="addTodo();" class="addButton">Add</button>
+        <input type="date" class="js-date-input">
+
+        <button onclick="addTodo();" class="addButton">Add</button>
+
+    </div>
 
     <div class="display"></div>
 
@@ -40,13 +89,14 @@
                 const { name, dueDate } = todoObject;
 
 
-                const html = `<p>${name} ${dueDate}
-                    <button onclick="
+                const html = `
+                <div>${name}</div> 
+                <div>${dueDate}</div>
+                <button onclick="
                 todoList.splice(${i},1);
                 renderTodoList();
-                ">Delete
-                </button>
-                </p>`
+                " class="deleteButton">Delete
+                </button>`
 
 
                 todoListHtml = todoListHtml + html;
